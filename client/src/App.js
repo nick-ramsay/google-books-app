@@ -1,4 +1,6 @@
 import React from 'react';
+import BookSearch from "./components/BookSearch/BookSearch";
+import BookResults from "./components/BookResults/BookResults";
 import logo from './logo.svg';
 import './App.css';
 
@@ -22,6 +24,10 @@ function App() {
           <h1 class="display-4">Google Books Search</h1>
           <p class="lead">Search for books that are available on <a href="https://books.google.com/">Google Books</a></p>
         </div>
+      </div>
+      <div class="container">
+        <BookSearch />
+        <BookResults />
       </div>
     </div>
   );
