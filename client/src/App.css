@@ -1,3 +1,21 @@
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.jumbotron {
+  background-image: url("./images/libary-jumbotron.jpg");
+  background-size: cover;
+  color: white;
+  padding-top: 10%;
+  background-color: rgba(0,0,0,0.5);
+  background-blend-mode: darken;
+  box-shadow: 0px 10px 10px grey;
+}
+
 .App {
   text-align: center;
 }
