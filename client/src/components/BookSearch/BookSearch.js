@@ -9,8 +9,8 @@ function BookSearch(props) {
                 <h3>Book Search</h3>
                 <p>Book</p>
                 <div className="form-group">
-                    <input type="text" className="formControl" id="bookSearchInput" style={{width: "100%"}} placeholder="Enter your search term here..."></input>
-                    <button className="btn btn-dark float-right mt-1" id="bootSearchBtn">Search</button>
+                    <input name="bookSearch" type="text" className="formControl" id="bookSearchInput" style={{width: "100%"}} placeholder="Enter your search term here..." onChange={props.handleSearchChange}></input>
+                    <button className="btn btn-dark float-right mt-1" type="button" id="bootSearchBtn" onClick={props.handleBookSearch}>Search</button>
                 </div>
             </form>
         </div>
