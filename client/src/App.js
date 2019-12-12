@@ -17,11 +17,11 @@ class App extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state.bookSearch);
   };
 
   handleBookSearch = event => {
     event.preventDefault();
+    console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
     console.log("Clicked search!");
     API.getBookResults(this.state.bookSearch).then(res => /*console.log(res.data.items)*/this.setState({ booksData: res.data.items }))
     console.log(this.state.booksData);
