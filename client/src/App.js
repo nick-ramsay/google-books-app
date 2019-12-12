@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import BookSearch from "./components/BookSearch/BookSearch";
 import BookResults from "./components/BookResults/BookResults";
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -21,23 +21,27 @@ class App extends Component {
 
   handleBookSearch = event => {
     event.preventDefault();
-    console.log("Clicked search!");
-    API.getBookResults(this.state.bookSearch).then(res => /*console.log(res.data.items)*/this.setState({ booksData: res.data.items }))
+    API.getBookResults(this.state.bookSearch).then(res => this.setState({ booksData: res.data.items }))
     console.log(this.state.booksData);
+  }
+
+  saveBook = event => {
+    event.preventDefault();
+    console.log("Clicked saved book!");
   }
 
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className="navbar-brand" href="#">Google Books</a>
+          <a className="navbar-brand" href="/">Google Books Search</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" href="#">Search</a>
-              <a className="nav-item nav-link" href="#">Saved</a>
+              <a className="nav-item nav-link" href="/">Search</a>
+              <a className="nav-item nav-link" href="/saved">Saved</a>
             </div>
           </div>
         </nav>
@@ -49,24 +53,27 @@ class App extends Component {
         </div>
         <div>
         </div>
-        <div className="container">
-          <BookSearch
-            handleSearchChange={this.handleSearchChange}
-            handleBookSearch={this.handleBookSearch}
-          />
-          <h3>Results</h3>
-          {this.state.booksData.map(book => (
-            <BookResults
-              volumeInfo={book.volumeInfo} 
-              searchInfo={book.searchInfo}
-              // author={book.volumeInfo.authors}
-              // imageURL={book.volumeInfo.imageLinks.thumbnail}
-              // description={book.volumeInfo.description}
-              // link={book.volumeInfo.previewLink}
-            />
-          ))
+            <div className="container">
+              <row>
+                <h4>Search for Books</h4>
+                <BookSearch
+                  handleSearchChange={this.handleSearchChange}
+                  handleBookSearch={this.handleBookSearch}
+                />
+              </row>
+              <row>
+                <h3>Results</h3>
+                {this.state.booksData.map(book => (
+                  <BookResults
+                    volumeInfo={book.volumeInfo}
+                    searchInfo={book.searchInfo}
+                    saveBook={this.saveBook}
+                  />
+                ))
+                }
+              </row>
+            </div>
           }
-        </div>
       </div>
     );
   }

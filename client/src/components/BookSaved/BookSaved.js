@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function BookResults(props) {
+function BookSaved(props) {
     return (
         <div className="col-md-12 mt-2">
             <div class="card">
@@ -16,7 +16,7 @@ function BookResults(props) {
                             {props.volumeInfo && props.volumeInfo.previewLink &&
                                 <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.volumeInfo.previewLink}>View</a>
                             }
-                            <button className="btn btn-success m-1 float-right" type="button" onClick={props.saveBook}>Save</button>
+                            <button className="btn btn-danger m-1 float-right" type="button">Delete</button>
                         </div>
                     </div>
                     {props.volumeInfo && props.volumeInfo.authors &&
@@ -40,4 +40,4 @@ function BookResults(props) {
     );
 }
 
-export default BookResults;
+export default BookSaved;

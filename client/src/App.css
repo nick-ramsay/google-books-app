@@ -2,8 +2,13 @@ body {
   font-family: 'Goudy Bookletter 1911', serif;
 }
 
+a {
+  color: gold;
+}
+
 a:hover {
   text-decoration: none;
+  color: goldenrod;
 }
 
 .jumbotron {
