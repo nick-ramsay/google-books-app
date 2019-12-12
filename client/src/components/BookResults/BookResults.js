@@ -8,20 +8,30 @@ function BookResults(props) {
                 <div class="card-body col-md-12">
                     <div className="row">
                         <div className="col-md-8">
-                            <h5 class="card-title">{props.bookTitle}</h5>
+                            {props.volumeInfo && props.volumeInfo.title &&
+                                <h5 class="card-title"><strong>{props.volumeInfo.title}</strong></h5>
+                            }
                         </div>
                         <div className="col-md-4">
-                            <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.link}>View</a>
+                            {props.volumeInfo && props.volumeInfo.previewLink &&
+                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.volumeInfo.previewLink}>View</a>
+                            }
                             <button className="btn btn-success m-1 float-right" type="button">Save</button>
                         </div>
                     </div>
-                    <p class="card-text">Written by {props.author}</p>
+                    {props.volumeInfo && props.volumeInfo.authors &&
+                        <p class="card-text">Written by {props.volumeInfo.authors}</p>
+                    }
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={props.imageURL} alt="Book image goes here..." class="img-thumbnail" />
+                            {props.volumeInfo.imageLinks && props.volumeInfo.imageLinks.thumbnail &&
+                                <img src={props.volumeInfo.imageLinks.thumbnail} alt="Book image goes here..." class="img-thumbnail" />
+                            }
                         </div>
                         <div className="col-md-8">
-                            <p>{props.description}</p>
+                            {props.volumeInfo && props.volumeInfo.description &&
+                                <p>{props.volumeInfo.description}</p>
+                            }
                         </div>
                     </div>
                 </div>

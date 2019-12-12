@@ -21,7 +21,6 @@ class App extends Component {
 
   handleBookSearch = event => {
     event.preventDefault();
-    console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
     console.log("Clicked search!");
     API.getBookResults(this.state.bookSearch).then(res => /*console.log(res.data.items)*/this.setState({ booksData: res.data.items }))
     console.log(this.state.booksData);
@@ -58,12 +57,12 @@ class App extends Component {
           <h3>Results</h3>
           {this.state.booksData.map(book => (
             <BookResults
-              bookTitle={book.volumeInfo.title}
-              briefDescription={book.searchInfo.textSnippet}
-              author={book.volumeInfo.authors}
-              imageURL={book.volumeInfo.imageLinks.thumbnail}
-              description={book.volumeInfo.description}
-              link={book.volumeInfo.previewLink}
+              volumeInfo={book.volumeInfo} 
+              searchInfo={book.searchInfo}
+              // author={book.volumeInfo.authors}
+              // imageURL={book.volumeInfo.imageLinks.thumbnail}
+              // description={book.volumeInfo.description}
+              // link={book.volumeInfo.previewLink}
             />
           ))
           }
