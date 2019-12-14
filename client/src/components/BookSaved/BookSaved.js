@@ -16,7 +16,7 @@ function BookSaved(props) {
                             {props.link &&
                                 <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.link}>View</a>
                             }
-                            <button className="btn btn-danger m-1 float-right" type="button">Delete</button>
+                            <button className="btn btn-danger m-1 float-right" id={props.bookID} onClick={props.deleteBook} type="button">Delete</button>
                         </div>
                     </div>
                     {props.author &&

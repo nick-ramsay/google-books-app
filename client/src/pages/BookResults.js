@@ -34,7 +34,11 @@ class BookResults extends Component {
             imageURL: this.state.booksData[bookClicked].volumeInfo.imageLinks.thumbnail,
             description: this.state.booksData[bookClicked].volumeInfo.description
         }
-        API.saveBook(savedBookData).then(res => res.send(res)).catch(err => console.log(err));;
+
+        var currentBooksData = this.state.booksData;
+        currentBooksData.splice(bookClicked,1);
+
+        API.saveBook(savedBookData).then(res => this.setState({booksData:currentBooksData})).catch(err => console.log(err));;
         console.log("Clicked saved book!");
     }
 

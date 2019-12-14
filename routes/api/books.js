@@ -9,6 +9,9 @@ router
 router
   .route("/saved")
   .get(booksController.getSavedBooks)
+router
+  .route("/delete/:id")
+  .delete(booksController.deleteBook)
 
 // Matches with "/api/books/:id"
 // router
