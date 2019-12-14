@@ -41,14 +41,14 @@ class BookResults extends Component {
             <div>
                 <div className="container">
                     <row>
-                        <h4>Search for Books</h4>
+                        <h4><strong>Search for Books</strong></h4>
                         <BookSearch
                             handleSearchChange={this.handleSearchChange}
                             handleBookSearch={this.handleBookSearch}
                         />
                     </row>
                     <row>
-                        <h3>Results</h3>
+                        <h3><strong>Results</strong></h3>
                         {this.state.booksData.map(book => (
                             <BookResultsComponent
                                 volumeInfo={book.volumeInfo}

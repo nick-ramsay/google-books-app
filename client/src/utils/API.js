@@ -11,7 +11,8 @@ export default {
         return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query + "&key="+keys.google_books.apiKey)
     },
     getSavedBooks: function() {
-        return axios.get("/api/saved-books")
+        console.log("Called get saved books API!");
+        return axios.get(apiUrl + "/api/books/saved");
     },
     saveBook: function(bookData) {
         console.log(bookData);

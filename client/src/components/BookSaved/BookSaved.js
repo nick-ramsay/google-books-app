@@ -8,29 +8,29 @@ function BookSaved(props) {
                 <div className="card-body col-md-12">
                     <div className="row">
                         <div className="col-md-8">
-                            {props.volumeInfo && props.volumeInfo.title &&
-                                <h5 className="card-title"><strong>{props.volumeInfo.title}</strong></h5>
+                            {props.title &&
+                                <h5 className="card-title"><strong>{props.title}</strong></h5>
                             }
                         </div>
                         <div className="col-md-4">
-                            {props.volumeInfo && props.volumeInfo.previewLink &&
-                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.volumeInfo.previewLink}>View</a>
+                            {props.link &&
+                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.link}>View</a>
                             }
                             <button className="btn btn-danger m-1 float-right" type="button">Delete</button>
                         </div>
                     </div>
-                    {props.volumeInfo && props.volumeInfo.authors &&
-                        <p className="card-text">Written by {props.volumeInfo.authors}</p>
+                    {props.author &&
+                        <p className="card-text">Written by {props.author}</p>
                     }
                     <div className="row">
                         <div className="col-md-4">
-                            {props.volumeInfo.imageLinks && props.volumeInfo.imageLinks.thumbnail &&
-                                <img src={props.volumeInfo.imageLinks.thumbnail} alt="Book image goes here..." className="img-thumbnail" />
+                            {props.imageURL &&
+                                <img src={props.imageURL} alt="Book image goes here..." className="img-thumbnail" />
                             }
                         </div>
                         <div className="col-md-8">
-                            {props.volumeInfo && props.volumeInfo.description &&
-                                <p>{props.volumeInfo.description}</p>
+                            {props.description &&
+                                <p>{props.description}</p>
                             }
                         </div>
                     </div>

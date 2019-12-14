@@ -6,6 +6,9 @@ router
   .route("/")
   .get(booksController.getSavedBooks)
   .post(booksController.saveBook);
+router
+  .route("/saved")
+  .get(booksController.getSavedBooks)
 
 // Matches with "/api/books/:id"
 // router
