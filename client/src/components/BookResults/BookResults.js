@@ -16,7 +16,7 @@ function BookResults(props) {
                             {props.volumeInfo && props.volumeInfo.previewLink &&
                                 <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.volumeInfo.previewLink}>View</a>
                             }
-                            <button className="btn btn-success m-1 float-right" type="button" onClick={props.saveBook}>Save</button>
+                            <button className="btn btn-success m-1 float-right" type="button" id={props.bookIndex} onClick={props.saveBook}>Save</button>
                         </div>
                     </div>
                     {props.volumeInfo && props.volumeInfo.authors &&

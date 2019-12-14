@@ -24,13 +24,15 @@ class BookResults extends Component {
     }
 
     saveBook = event => {
+        console.log(this.state.booksData);
+        var bookClicked = event.target.id;
         event.preventDefault();
         var savedBookData = {
-            title: "New Title",
-            author: "New Author",
-            link: "https://www.google.com",
-            imageURL: "https://www.google.com",
-            description: "Here's a new book for you!"
+            title: this.state.booksData[bookClicked].volumeInfo.title,
+            author: this.state.booksData[bookClicked].volumeInfo.authors,
+            link: this.state.booksData[bookClicked].volumeInfo.previewLink,
+            imageURL: this.state.booksData[bookClicked].volumeInfo.imageLinks.thumbnail,
+            description: this.state.booksData[bookClicked].volumeInfo.description
         }
         API.saveBook(savedBookData).then(res => res.send(res)).catch(err => console.log(err));;
         console.log("Clicked saved book!");
@@ -49,11 +51,12 @@ class BookResults extends Component {
                     </row>
                     <row>
                         <h3><strong>Results</strong></h3>
-                        {this.state.booksData.map(book => (
+                        {this.state.booksData.map((book,index) => (
                             <BookResultsComponent
                                 volumeInfo={book.volumeInfo}
                                 searchInfo={book.searchInfo}
                                 saveBook={this.saveBook}
+                                bookIndex={index}
                             />
                         ))
                         }
