@@ -32,11 +32,11 @@ Google Books Search is deployed on Heroku for usage [here](https://searching-goo
 
 When users first log on, they will land on the search page. A user can enter a term for which they'd like to search Google Books and click "Search". After clicking search, ten results from Google Search will be rendered on the page. The user can read through each and click the "View" button to see more details about the book on Google Books. The user may also select the "Save" button, which will save the book to the database where it can then be viewed on the save page.
 
-![Google Books Search](https://github.com/nick-ramsay/readme-images/blob/master/google-books-search/search-page?raw=true)
+![Google Books Search](https://github.com/nick-ramsay/readme-images/blob/master/google-books-search/search-page.jpg?raw=true)
 
 The user can then navigate to the "Saved" component by clicking "Saved" in the navigation bar at the top of the screen. Once taken to the "Saved" component, the user can view all the books that they've ever saved, reading the same details they first saw or clicking the "View" button to see more details on Google Books. If the user decides that they no longer want to keep a book on the saved page, they may select "Delete" to remove it.
 
-![Google Books Search](https://github.com/nick-ramsay/readme-images/blob/master/google-books-search/saved-page?raw=true)
+![Google Books Search](https://github.com/nick-ramsay/readme-images/blob/master/google-books-search/saved-page.jpg?raw=true)
 
 ## Built With
 - The Google Books Search application was built using Bootstrap, Axios and React.js, with additional supporting packages including Mongoose and Express.js. The page utilizes a MongoDB database. 
