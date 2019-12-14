@@ -27,6 +27,14 @@ class App extends Component {
 
   saveBook = event => {
     event.preventDefault();
+    var savedBookData = {
+      title: "New Title",
+      author: "New Author",
+      link: "https://www.google.com",
+      imageURL: "https://www.google.com",
+      description: "Here's a new book for you!"
+    }
+    API.saveBook(savedBookData).then(res => res.send(res)).catch(err => console.log(err));;
     console.log("Clicked saved book!");
   }
 

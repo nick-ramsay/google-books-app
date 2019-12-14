@@ -4,12 +4,12 @@ import "./style.css";
 function BookResults(props) {
     return (
         <div className="col-md-12 mt-2">
-            <div class="card">
-                <div class="card-body col-md-12">
+            <div className="card">
+                <div className="card-body col-md-12">
                     <div className="row">
                         <div className="col-md-8">
                             {props.volumeInfo && props.volumeInfo.title &&
-                                <h5 class="card-title"><strong>{props.volumeInfo.title}</strong></h5>
+                                <h5 className="card-title"><strong>{props.volumeInfo.title}</strong></h5>
                             }
                         </div>
                         <div className="col-md-4">
@@ -20,12 +20,12 @@ function BookResults(props) {
                         </div>
                     </div>
                     {props.volumeInfo && props.volumeInfo.authors &&
-                        <p class="card-text">Written by {props.volumeInfo.authors}</p>
+                        <p className="card-text">Written by {props.volumeInfo.authors}</p>
                     }
                     <div className="row">
                         <div className="col-md-4">
                             {props.volumeInfo.imageLinks && props.volumeInfo.imageLinks.thumbnail &&
-                                <img src={props.volumeInfo.imageLinks.thumbnail} alt="Book image goes here..." class="img-thumbnail" />
+                                <img src={props.volumeInfo.imageLinks.thumbnail} alt="Book image goes here..." className="img-thumbnail" />
                             }
                         </div>
                         <div className="col-md-8">

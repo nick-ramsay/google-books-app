@@ -9,6 +9,6 @@ const savedBookSchema = new Schema({
     description: {type: String}
 })
 
-const savedBooks = mongoose.model("savedBooks", savedBookSchema);
+const SavedBooks = mongoose.model("savedBooks", savedBookSchema);
 
-module.exports = savedBooks;
+module.exports = SavedBooks;
