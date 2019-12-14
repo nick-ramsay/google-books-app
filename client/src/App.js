@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
+import BookResultsPage from "./pages/BookResults";
 import Navbar from "./components/Navbar/Navbar";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import BookSearch from "./components/BookSearch/BookSearch";
-import BookResults from "./components/BookResults/BookResults";
+import BookResultsComponent from "./components/BookResults/BookResults";
 import './App.css';
 
 class App extends Component {
@@ -42,31 +43,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <Jumbotron />
-        <div className="container">
-          <row>
-            <h4>Search for Books</h4>
-            <BookSearch
-              handleSearchChange={this.handleSearchChange}
-              handleBookSearch={this.handleBookSearch}
-            />
-          </row>
-          <row>
-            <h3>Results</h3>
-            {this.state.booksData.map(book => (
-              <BookResults
-                volumeInfo={book.volumeInfo}
-                searchInfo={book.searchInfo}
-                saveBook={this.saveBook}
-              />
-            ))
-            }
-          </row>
+      <Router>
+        <div>
+          <Navbar />
+          <Jumbotron />
+          <Switch>
+            <Route exact path="/" component={BookResultsPage} />
+            <Route exact path="/saved" component={BookResultsPage} />
+          </Switch>
         </div>
-        }
-      </div>
+      </Router>
     );
   }
 }
