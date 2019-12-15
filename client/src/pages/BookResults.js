@@ -18,7 +18,7 @@ class BookResults extends Component {
     };
 
     handleBookSearch = () => {
-        API.getBookResults(this.state.bookSearch).then(res => (res.data.items !== undefined) ? this.setState({ booksData: res.data.items }):this.setState({ booksData: [] }))
+        API.getBookResults(this.state.bookSearch).then(res => (res.data.items !== undefined) ? this.setState({ booksData: res.data.items }) : this.setState({ booksData: [] }))
     }
 
     saveBook = event => {
@@ -67,8 +67,7 @@ class BookResults extends Component {
                             }
                         </row>
                     </div>
-                    }
-            </div>
+                </div>
             )
         }
         return (
@@ -86,7 +85,6 @@ class BookResults extends Component {
                         <p>No search results</p>
                     </row>
                 </div>
-                }
             </div>
         )
     }

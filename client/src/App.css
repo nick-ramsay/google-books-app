@@ -29,8 +29,9 @@ a:hover {
   box-shadow: 0px 10px 10px grey;
 }
 
-.card-body {
+.card {
   box-shadow: 5px 5px 5px grey;
+  margin-bottom: 40px;
 }
 
 form::after {
@@ -68,6 +69,24 @@ form::after {
 .App-link {
   color: #61dafb;
 }
+
+@media only screen and (max-width : 640px) {
+  .jumbotron {
+    padding-top: 20%;
+  }
+  }
+
+  @media only screen and (max-width : 940px) {
+    .jumbotron {
+      font-size: 20px;
+    }
+  }
+
+  @media only screen and (max-width : 640px) {
+    .jumbotron {
+      font-size: 20px;
+    }
+  }
 
 @keyframes App-logo-spin {
   from {
