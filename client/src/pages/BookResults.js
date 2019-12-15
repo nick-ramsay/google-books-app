@@ -17,10 +17,8 @@ class BookResults extends Component {
         });
     };
 
-    handleBookSearch = event => {
-        event.preventDefault();
-        API.getBookResults(this.state.bookSearch).then(res => this.setState({ booksData: res.data.items }))
-        console.log(this.state.booksData);
+    handleBookSearch = () => {
+        API.getBookResults(this.state.bookSearch).then(res => (res.data.items !== undefined) ? this.setState({ booksData: res.data.items }):this.setState({ booksData: [] }))
     }
 
     saveBook = event => {
@@ -36,13 +34,43 @@ class BookResults extends Component {
         }
 
         var currentBooksData = this.state.booksData;
-        currentBooksData.splice(bookClicked,1);
+        currentBooksData.splice(bookClicked, 1);
 
-        API.saveBook(savedBookData).then(res => this.setState({booksData:currentBooksData})).catch(err => console.log(err));;
+        API.saveBook(savedBookData).then(res => this.setState({ booksData: currentBooksData })).catch(err => console.log(err));;
         console.log("Clicked saved book!");
     }
 
     render() {
+        var currentBooksData = this.state.booksData;
+        console.log(currentBooksData);
+        if (currentBooksData.length !== 0) {
+            return (
+                <div>
+                    <div className="container">
+                        <row>
+                            <h4><strong>Search for Books</strong></h4>
+                            <BookSearch
+                                handleSearchChange={this.handleSearchChange}
+                                handleBookSearch={this.handleBookSearch}
+                            />
+                        </row>
+                        <row>
+                            <h3><strong>Results</strong></h3>
+                            {this.state.booksData.map((book, index) => (
+                                <BookResultsComponent
+                                    volumeInfo={book.volumeInfo}
+                                    searchInfo={book.searchInfo}
+                                    saveBook={this.saveBook}
+                                    bookIndex={index}
+                                />
+                            ))
+                            }
+                        </row>
+                    </div>
+                    }
+            </div>
+            )
+        }
         return (
             <div>
                 <div className="container">
@@ -55,15 +83,7 @@ class BookResults extends Component {
                     </row>
                     <row>
                         <h3><strong>Results</strong></h3>
-                        {this.state.booksData.map((book,index) => (
-                            <BookResultsComponent
-                                volumeInfo={book.volumeInfo}
-                                searchInfo={book.searchInfo}
-                                saveBook={this.saveBook}
-                                bookIndex={index}
-                            />
-                        ))
-                        }
+                        <p>No search results</p>
                     </row>
                 </div>
                 }
