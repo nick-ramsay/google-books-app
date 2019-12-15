@@ -2,6 +2,14 @@ body {
   font-family: 'Goudy Bookletter 1911', serif;
 }
 
+footer {
+  text-align: center;
+  background-color: #343a40;
+  height: 35px;
+  padding: 4px 0 4px 0;
+  box-shadow: 10px 0px 20px grey;
+}
+
 a {
   color: gold;
 }
