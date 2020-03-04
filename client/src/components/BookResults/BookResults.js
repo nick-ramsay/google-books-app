@@ -14,7 +14,7 @@ function BookResults(props) {
                         </div>
                         <div className="col-md-4">
                             {props.volumeInfo && props.volumeInfo.previewLink &&
-                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.volumeInfo.previewLink}>View</a>
+                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" rel="noopener noreferrer" href={props.volumeInfo.previewLink}>View</a>
                             }
                             <button className="btn btn-success m-1 float-right" type="button" id={props.bookIndex} onClick={props.saveBook}>Save</button>
                         </div>
@@ -25,7 +25,7 @@ function BookResults(props) {
                     <div className="row">
                         <div className="col-md-4">
                             {props.volumeInfo.imageLinks && props.volumeInfo.imageLinks.thumbnail &&
-                                <img src={props.volumeInfo.imageLinks.thumbnail} alt="Book image goes here..." className="img-thumbnail" />
+                                <img src={props.volumeInfo.imageLinks.thumbnail} alt={props.volumeInfo.title} className="img-thumbnail" />
                             }
                         </div>
                         <div className="col-md-8">

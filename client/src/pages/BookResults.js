@@ -47,14 +47,14 @@ class BookResults extends Component {
             return (
                 <div>
                     <div className="container">
-                        <row>
+                        <div className="row">
                             <h4><strong>Search for Books</strong></h4>
                             <BookSearch
                                 handleSearchChange={this.handleSearchChange}
                                 handleBookSearch={this.handleBookSearch}
                             />
-                        </row>
-                        <row>
+                        </div>
+                        <div className="row">
                             <h3><strong>Results</strong></h3>
                             {this.state.booksData.map((book, index) => (
                                 <BookResultsComponent
@@ -65,7 +65,7 @@ class BookResults extends Component {
                                 />
                             ))
                             }
-                        </row>
+                        </div>
                     </div>
                 </div>
             )
@@ -73,17 +73,17 @@ class BookResults extends Component {
         return (
             <div>
                 <div className="container">
-                    <row>
+                    <div className="row">
                         <h4><strong>Search for Books</strong></h4>
                         <BookSearch
                             handleSearchChange={this.handleSearchChange}
                             handleBookSearch={this.handleBookSearch}
                         />
-                    </row>
-                    <row>
+                    </div>
+                    <div className="row">
                         <h3><strong>Results</strong></h3>
                         <p>No search results</p>
-                    </row>
+                    </div>
                 </div>
             </div>
         )

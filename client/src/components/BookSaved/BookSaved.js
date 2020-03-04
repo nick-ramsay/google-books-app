@@ -14,7 +14,7 @@ function BookSaved(props) {
                         </div>
                         <div className="col-md-4">
                             {props.link &&
-                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" href={props.link}>View</a>
+                                <a className="btn btn-primary m-1 float-right" type="button" target="_blank" rel="noopener noreferrer" href={props.link}>View</a>
                             }
                             <button className="btn btn-danger m-1 float-right" id={props.bookID} onClick={props.deleteBook} type="button">Delete</button>
                         </div>
@@ -25,7 +25,7 @@ function BookSaved(props) {
                     <div className="row">
                         <div className="col-md-4">
                             {props.imageURL &&
-                                <img src={props.imageURL} alt="Book image goes here..." className="img-thumbnail" />
+                                <img src={props.imageURL} alt={props.title} className="img-thumbnail" />
                             }
                         </div>
                         <div className="col-md-8">

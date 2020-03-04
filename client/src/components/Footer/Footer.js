@@ -3,8 +3,8 @@ import "./style.css";
 
 function Footer(props) {
     return (
-        <footer class="fixed-bottom footer-dark">
-            <div class="container">
+        <footer className="fixed-bottom footer-dark">
+            <div className="container">
                 <a href="/">Google Books Search</a>
             </div>
         </footer>
