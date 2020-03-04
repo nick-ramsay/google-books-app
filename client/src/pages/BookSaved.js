@@ -15,15 +15,12 @@ class BookSaved extends Component {
     deleteBook = event => {
         event.preventDefault();
         var bookClicked = event.target.id;
-        console.log(bookClicked);
 
         API.deleteBook(bookClicked).then(res => this.renderSavedBooks()).catch(err => console.log(err));
-        console.log("Clicked delete book!");
     }
 
     renderSavedBooks = () => {
         API.getSavedBooks().then(res => this.setState({ savedBooksData: res.data })).catch(err => console.log(err));
-        console.log(this.state.savedBooksData)
     }
 
     render() {
@@ -32,9 +29,9 @@ class BookSaved extends Component {
             return (
                 <div>
                     <div className="container">
-                        <row>
+                        <div className = "row">
                             <h3><strong>Saved Books</strong></h3>
-                            {this.state.savedBooksData.map(book => (
+                            {this.state.savedBooksData.map((book,index) => (
                                 <BookSavedComponent
                                     bookID={book._id}
                                     title={book.title}
@@ -43,10 +40,11 @@ class BookSaved extends Component {
                                     imageURL={book.imageURL}
                                     description={book.description}
                                     deleteBook={this.deleteBook}
+                                    key={index}
                                 />
                             ))
                             }
-                        </row>
+                        </div>
                     </div>
                 </div>
             )

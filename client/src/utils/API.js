@@ -11,15 +11,12 @@ export default {
         return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query + "&key="+keys.google_books.apiKey)
     },
     getSavedBooks: function() {
-        console.log("Called get saved books API!");
         return axios.get(apiUrl + "/api/books/saved");
     },
     deleteBook: function(deletedBook) {
-        console.log("Called delete book API!");
         return axios({method:"delete", url: apiUrl + "/api/books/delete/" + deletedBook});
     },
     saveBook: function(bookData) {
-        console.log(bookData);
         return axios({method:"post", url: apiUrl + "/api/books", data: bookData })
     }
 };

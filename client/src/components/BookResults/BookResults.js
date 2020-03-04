@@ -20,7 +20,14 @@ function BookResults(props) {
                         </div>
                     </div>
                     {props.volumeInfo && props.volumeInfo.authors &&
-                        <p className="card-text">Written by {props.volumeInfo.authors}</p>
+                        <p className="card-text">Written by {props.volumeInfo.authors.map((author, index) => {
+                            if (index === 0) {
+                                return author
+                            } else {
+                                return ", " + author
+                            }
+                        })
+                        }</p>
                     }
                     <div className="row">
                         <div className="col-md-4">

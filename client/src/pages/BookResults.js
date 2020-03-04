@@ -22,7 +22,6 @@ class BookResults extends Component {
     }
 
     saveBook = event => {
-        console.log(this.state.booksData);
         var bookClicked = event.target.id;
         event.preventDefault();
         var savedBookData = {
@@ -37,12 +36,10 @@ class BookResults extends Component {
         currentBooksData.splice(bookClicked, 1);
 
         API.saveBook(savedBookData).then(res => this.setState({ booksData: currentBooksData })).catch(err => console.log(err));;
-        console.log("Clicked saved book!");
     }
 
     render() {
         var currentBooksData = this.state.booksData;
-        console.log(currentBooksData);
         if (currentBooksData.length !== 0) {
             return (
                 <div>
@@ -62,6 +59,7 @@ class BookResults extends Component {
                                     searchInfo={book.searchInfo}
                                     saveBook={this.saveBook}
                                     bookIndex={index}
+                                    key={index}
                                 />
                             ))
                             }

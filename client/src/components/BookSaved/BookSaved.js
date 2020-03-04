@@ -20,7 +20,13 @@ function BookSaved(props) {
                         </div>
                     </div>
                     {props.author &&
-                        <p className="card-text">Written by {props.author}</p>
+                        <p className="card-text">Written by {props.author.map((author, index) => {
+                            if (index === 0) {
+                                return author
+                            } else {
+                                return ", " + author
+                            }
+                        })}</p>
                     }
                     <div className="row">
                         <div className="col-md-4">
