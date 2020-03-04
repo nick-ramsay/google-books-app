@@ -82,6 +82,8 @@ class BookResults extends Component {
                     </div>
                     <div className="row">
                         <h3><strong>Results</strong></h3>
+                    </div>
+                    <div className="row">
                         <p>No search results</p>
                     </div>
                 </div>

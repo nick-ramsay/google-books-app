@@ -54,10 +54,12 @@ class BookSaved extends Component {
         return (
             <div>
                 <div className="container">
-                    <row>
+                    <div className="row">
                         <h3><strong>Saved Books</strong></h3>
+                    </div>
+                    <div className="row">
                         <p>No saved books</p>
-                    </row>
+                    </div>
                 </div>
             </div>
         )
