@@ -20,6 +20,12 @@ a:hover {
   color: goldenrod;
 }
 
+.btn {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+}
+
 .jumbotron {
   background-image: url("./images/libary-jumbotron.jpg");
   background-size: cover;
