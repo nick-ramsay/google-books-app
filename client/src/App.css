@@ -1,5 +1,6 @@
 body {
   font-family: 'Goudy Bookletter 1911', serif;
+  -webkit-appearance: none;
 }
 
 footer {
